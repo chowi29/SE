@@ -1,0 +1,12 @@
+[prefer2] Sun May 1 19:33:03 2022 +0900 add use case description 109b7ac
+[chowi29] Sun May 1 10:59:53 2022 +0900 combine 0a20e5d
+[chowi29] Sat Apr 30 23:58:56 2022 +0900 chasge 6fb8c9b
+[SunHo Park] Sat Apr 30 22:33:25 2022 +0900 add actor description 7ce88b0
+[SunHo Park] Sat Apr 30 22:32:43 2022 +0900 add requirements list 62232c4
+[prefer2] Sat Apr 30 22:31:08 2022 +0900 add use case diagram image 806aae9
+[prefer2] Sat Apr 30 20:29:27 2022 +0900 add use case diagram 6443cc1
+[hun-jae] Sat Apr 30 14:41:06 2022 +0900 change use case diagram 3cc0980
+[hun-jae] Sat Apr 30 13:15:31 2022 +0900 usecase diagram error fix 0041501
+[hun-jae] Tue Apr 26 22:31:25 2022 +0900 Update Use Case Diagram.mdj 8d57a13
+[hun-jae] Tue Apr 26 19:52:31 2022 +0900 add requirement, actor, UML 61d1374
+[chowi29] Sat Apr 23 16:20:38 2022 +0900 첫번째 버전 3771818
