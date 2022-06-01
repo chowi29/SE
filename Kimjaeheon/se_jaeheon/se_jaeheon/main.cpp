@@ -3,6 +3,7 @@
 //#include <stdio.h> 
 //#include <string.h>
 #include "SearchProduct.h"
+#include "SearchProductSoldOut.h"
 //#include "Product.h"
 #pragma once
 // 상수 선언
@@ -35,6 +36,7 @@ void doTask(FILE* in_fp, FILE* out_fp) {
     int is_program_exit = 0;
     Product product;
     SearchProduct searchProduct;
+    SearchProductSoldOut searchProductSoldOut;
     while (!is_program_exit) {
         // 입력파일에서 메뉴 숫자 2개를 읽기
         fscanf(in_fp, "%d %d ", &menu_level_1, &menu_level_2);
@@ -77,6 +79,8 @@ void doTask(FILE* in_fp, FILE* out_fp) {
                 break;
             case 3:
                 //판매 완료 상품 조회
+                searchProductSoldOut.startInterface(in_fp, out_fp, &product);
+                cout << "hello" << endl;
                 break;
             }
             break;
@@ -122,7 +126,7 @@ void doTask(FILE* in_fp, FILE* out_fp) {
             }
         }
         }
-        return;
+        //return;
     }
 }
 

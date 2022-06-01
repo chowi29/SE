@@ -142,10 +142,12 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Product.cpp" />
     <ClCompile Include="SearchProduct.cpp" />
+    <ClCompile Include="SearchProductSoldOut.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Product.h" />
     <ClInclude Include="SearchProduct.h" />
+    <ClInclude Include="SearchProductSoldOut.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="input.txt" />

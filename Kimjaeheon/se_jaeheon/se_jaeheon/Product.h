@@ -22,5 +22,6 @@ private:
 	ProductList productList[100];
 public:
 	ProductList getProduct(FILE* out_fp, string productName);
+	ProductList showProductSoldOut(string sellerName);
 };
 

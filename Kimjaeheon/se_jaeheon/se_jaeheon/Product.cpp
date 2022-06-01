@@ -8,3 +8,10 @@ ProductList Product::getProduct(FILE* out_fp, string productName) {
 		}
 	}
 }
+ProductList Product::showProductSoldOut(string sellerName) {
+	for (int i = 0; i < 100; i++) {
+		if (productList[i].sellerName == sellerName) {
+			return productList[i];
+		}
+	}
+}
