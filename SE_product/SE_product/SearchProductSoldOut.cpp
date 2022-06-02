@@ -23,3 +23,9 @@ void SearchProductSoldOut::startInterface(FILE* in_fp, FILE* out_fp, Product* pr
 	searchProductSoldOutUI.showProductSoldOut(out_fp, productList);
 }
 
+SearchProductSoldOut::SearchProductSoldOut() {
+
+}
+SearchProductSoldOut::SearchProductSoldOut(Product* product) {
+	this->product = product;
+}

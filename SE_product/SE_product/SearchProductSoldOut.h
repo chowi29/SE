@@ -12,10 +12,12 @@ public:
 class SearchProductSoldOut
 {
 private:
-	Product product;
+	Product* product;
 	SearchProductSoldOutUI searchProductSoldOutUI;
 
 public:
+	SearchProductSoldOut();
+	SearchProductSoldOut(Product* product);
 	void startInterface(FILE* in_fp, FILE* out_fp, Product* product);
 };
 

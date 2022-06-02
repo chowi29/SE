@@ -1,0 +1,16 @@
+﻿  JoinMember.cpp
+  Login.cpp
+  Logout.cpp
+  main.cpp
+  Member.cpp
+  Product.cpp
+  RegisterProduct.cpp
+C:\Users\tint1\SE\SE_product\SE_product\RegisterProduct.cpp(34,18): warning C4477: 'fprintf' : 서식 문자열 '%d'에 'int' 형식의 인수가 필요하지만 variadic 인수 3의 형식이 'int *'입니다.
+C:\Users\tint1\SE\SE_product\SE_product\RegisterProduct.cpp(34,18): warning C4313: 'fprintf': 서식 문자열의 '%d'이(가) 인수 3('int *' 형식)과(와) 충돌합니다.
+C:\Users\tint1\SE\SE_product\SE_product\RegisterProduct.cpp(34,18): warning C4477: 'fprintf' : 서식 문자열 '%d'에 'int' 형식의 인수가 필요하지만 variadic 인수 4의 형식이 'int *'입니다.
+C:\Users\tint1\SE\SE_product\SE_product\RegisterProduct.cpp(34,18): warning C4313: 'fprintf': 서식 문자열의 '%d'이(가) 인수 4('int *' 형식)과(와) 충돌합니다.
+  SearchProduct.cpp
+  SearchProductSoldOut.cpp
+  WithdrawMember.cpp
+  코드를 생성하고 있습니다...
+  SE_product.vcxproj -> C:\Users\tint1\SE\SE_product\x64\Debug\SE_product.exe

@@ -35,4 +35,9 @@ void SearchProduct::startInterface(FILE* in_fp, FILE* out_fp, Product* product) 
 	ProductList productList = product->getProduct(out_fp, productName);
 	searchProductUI.showProduct(out_fp, productList);
 }
+SearchProduct::SearchProduct() {
 
+}
+SearchProduct::SearchProduct(Product* product) {
+	this->product = product;
+}

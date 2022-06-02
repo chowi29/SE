@@ -39,8 +39,8 @@ void doTask(FILE* in_fp, FILE* out_fp) {
     int menu_level_1 = 0, menu_level_2 = 0;
     int is_program_exit = 0;
     Product product;
-    SearchProduct searchProduct;
-    SearchProductSoldOut searchProductSoldOut;
+    SearchProduct searchProduct(&product);
+    SearchProductSoldOut searchProductSoldOut(&product);
     JoinMember joinMember;
     WithdrawMember withdrawMember;
     Login login;
