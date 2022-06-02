@@ -13,6 +13,15 @@ ProductList Product::getProduct(FILE *out_fp, string productName)
 	return productList[10];
 }
 
+ProductList Product::getAllProduct(FILE *out_fp)
+{
+	int productListSize = sizeof(productList)/sizeof(*productList);
+	for (int i = 0; i < productListSize; i++)
+	{
+		fprintf(out_fp, "%s %s %s %s\n", productList[i].sellerName, productList[i].productName, productList[i].manufactureCompany, productList[i].price, productList[i].leftQuantity, productList[i].averageSatisfaction);
+	}	
+}
+
 ProductList Product::showProductSoldOut(string sellerName)
 {
 	for (int i = 0; i < 100; i++)

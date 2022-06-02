@@ -22,15 +22,13 @@ void SearchProductUI::showProduct(FILE* out_fp, ProductList productList) {
 	strcpy(productName, productList.productName.c_str());
 	strcpy(manufactureCompany, productList.manufactureCompany.c_str());
 
-	fprintf(out_fp, "4.1. »óÇ° Á¤º¸ °Ë»ö \n>%s %s %s %d %d %d \n\n", &sellerName, &productName, &manufactureCompany, productList.productPrice, productList.productCount, productList.averageBuySatisfaction);
+	fprintf(out_fp, "4.1. ï¿½ï¿½Ç° ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ \n>%s %s %s %d %d %d \n\n", &sellerName, &productName, &manufactureCompany, productList.productPrice, productList.productCount, productList.averageBuySatisfaction);
 }
-
-
 
 void SearchProduct::startInterface(FILE* in_fp, FILE* out_fp, Product* product) {
 
 	string productName;
-	//boundary class¿¡°Ô productName ÀÔ·Â¹ÞÀ¸¶ó°í ¿äÃ»
+	//boundary classï¿½ï¿½ï¿½ï¿½ productName ï¿½Ô·Â¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
 	productName = searchProductUI.getProductName(in_fp, out_fp);
 	ProductList productList = product->getProduct(out_fp, productName);
 	searchProductUI.showProduct(out_fp, productList);

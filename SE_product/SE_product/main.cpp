@@ -1,5 +1,5 @@
 #pragma once
-// Çì´õ ¼±¾ð 
+// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 //#include <stdio.h> 
 //#include <string.h>
 #include "SearchProduct.h"
@@ -11,8 +11,11 @@
 #include "Logout.h"
 #include "RegisterProduct.h"
 #include "SearchProductSoldOut.h"
+#include "PurchasedProductHistory.h"
+#include "PurchasedSatisfaction.h"
+#include "SellProductStatistics.h"
 #pragma once
-// »ó¼ö ¼±¾ð
+// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #define MAX_STRING 32
 #define MIN_SATISFACTION 1
 #define MAX_SATISFACTION 5
@@ -20,16 +23,16 @@
 #define OUTPUT_FILE_NAME "output.txt"
 #pragma warning(disable: 4996)
 
-// ÇÔ¼ö ¼±¾ð
+// ï¿½Ô¼ï¿½ ï¿½ï¿½ï¿½ï¿½
 void doTask(FILE* in_fp, FILE* out_fp);
 void join();
 void program_exit();
 
-// º¯¼ö ¼±¾ð
+// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //FILE* in_fp, * out_fp;
 
 int main() {
-    // ÆÄÀÏ ÀÔÃâ·ÂÀ» À§ÇÑ ÃÊ±âÈ­
+    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
     FILE* in_fp = fopen(INPUT_FILE_NAME, "r+");
     FILE* out_fp = fopen(OUTPUT_FILE_NAME, "w+");
     doTask(in_fp, out_fp);
@@ -37,7 +40,7 @@ int main() {
 }
 
 void doTask(FILE* in_fp, FILE* out_fp) {
-    // ¸Þ´º ÆÄ½ÌÀ» À§ÇÑ level ±¸ºÐÀ» À§ÇÑ º¯¼ö 
+    // ï¿½Þ´ï¿½ ï¿½Ä½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ level ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
     int menu_level_1 = 0, menu_level_2 = 0;
     int is_program_exit = 0;
     Product product;
@@ -53,11 +56,16 @@ void doTask(FILE* in_fp, FILE* out_fp) {
     Logout logout(&member);
     RegisterProduct registerProduct(&member, &product);
 
+    int satisfaction = 0;
+    PurchasedProductHistory purchasedProductHistory(&product);
+    PurchasedSatisfaction purchasedSatisfaction(&product);
+    SellProductStatistics sellProductStatistics(&product);
+
     while (!is_program_exit) {
-        // ÀÔ·ÂÆÄÀÏ¿¡¼­ ¸Þ´º ¼ýÀÚ 2°³¸¦ ÀÐ±â
+        // ï¿½Ô·ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ï¿½ï¿½ ï¿½Ð±ï¿½
         fscanf(in_fp, "%d %d ", &menu_level_1, &menu_level_2);
 
-        // ¸Þ´º ±¸ºÐ ¹× ÇØ´ç ¿¬»ê ¼öÇà 
+        // ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
         switch (menu_level_1)
         {
         case 1: {
@@ -65,16 +73,16 @@ void doTask(FILE* in_fp, FILE* out_fp) {
             {
             case 1:
             {
-                //È¸¿ø°¡ÀÔ
-                cout << "È¸¿ø°¡ÀÔ ½Ãµµ" << endl;
+                //È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+                cout << "È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ãµï¿½" << endl;
                 joinMember.startInterface(in_fp, out_fp, &member, memberIndex);
                 memberIndex++;
-                cout << "È¸¿ø°¡ÀÔ ¼º°ø" << endl;
+                cout << "È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½" << endl;
 
                 break;
             }
             case 2: {
-                //È¸¿øÅ»Åð
+                //È¸ï¿½ï¿½Å»ï¿½ï¿½
                 withdrawMember.startInterface(out_fp, &member);
                 memberIndex--;
                 break;
@@ -87,13 +95,13 @@ void doTask(FILE* in_fp, FILE* out_fp) {
             switch (menu_level_2)
             {
             case 1: {
-                //·Î±×ÀÎ
-                cout << "·Î±×ÀÎ ½Ãµµ" << endl;
+                //ï¿½Î±ï¿½ï¿½ï¿½
+                cout << "ï¿½Î±ï¿½ï¿½ï¿½ ï¿½Ãµï¿½" << endl;
                 login.startInterface(in_fp, out_fp, &member);
                 break;
             }
             case 2: {
-                //·Î±×¾Æ¿ô
+                //ï¿½Î±×¾Æ¿ï¿½
                 logout.startInterface(out_fp, &member);
                 break;
             }
@@ -104,16 +112,16 @@ void doTask(FILE* in_fp, FILE* out_fp) {
             switch (menu_level_2)
             {
             case 1: {
-                //ÆÇ¸ÅÀÇ·ù µî·Ï
+                //ï¿½Ç¸ï¿½ï¿½Ç·ï¿½ ï¿½ï¿½ï¿½
                 registerProduct.startInterface(in_fp, out_fp, &member, &product, productIndex);
                 productIndex++;
                 break;
             }
             case 2:
-                //µî·Ï »óÇ° Á¶È¸
+                //ï¿½ï¿½ï¿½ ï¿½ï¿½Ç° ï¿½ï¿½È¸
                 break;
             case 3:
-                //ÆÇ¸Å ¿Ï·á »óÇ° Á¶È¸
+                //ï¿½Ç¸ï¿½ ï¿½Ï·ï¿½ ï¿½ï¿½Ç° ï¿½ï¿½È¸
                 searchProductSoldOut.startInterface(in_fp, out_fp, &product);
                 break;
             }
@@ -123,16 +131,18 @@ void doTask(FILE* in_fp, FILE* out_fp) {
             switch (menu_level_2)
             {
             case 1:
-                //»óÇ° Á¤º¸ °Ë»ö
+                //ï¿½ï¿½Ç° ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
                 searchProduct.startInterface(in_fp, out_fp, &product);
                 break;
             case 2:
-                //»óÇ° ±¸¸Å
+                //ï¿½ï¿½Ç° ï¿½ï¿½ï¿½ï¿½
             case 3:
-                //»óÇ° ±¸¸Å ³»¿ª Á¶È¸
+                //ï¿½ï¿½Ç° ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
+                purchasedProductHistory.startInterface(in_fp, out_fp, &product);
                 break;
             case 4:
-                //»óÇ° ±¸¸Å ¸¸Á·µµ Æò°¡
+                //ï¿½ï¿½Ç° ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+                purchasedSatisfaction.startInterface(in_fp, out_fp, &product);
                 break;
             }
             break;
@@ -141,7 +151,8 @@ void doTask(FILE* in_fp, FILE* out_fp) {
             switch (menu_level_2)
             {
             case 1:
-                //ÆÇ¸Å »óÇ° Åë°è
+                //ï¿½Ç¸ï¿½ ï¿½ï¿½Ç° ï¿½ï¿½ï¿½
+                sellProductStatistics.startInterface(in_fp, out_fp, &product);
                 break;
             }
             break;

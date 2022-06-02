@@ -20,6 +20,5 @@ public:
 	SearchProduct();
 	SearchProduct(Product* product);
 	void startInterface(FILE* in_fp, FILE* out_fp, Product* product);
-
 };
 

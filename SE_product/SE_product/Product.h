@@ -23,6 +23,7 @@ private:
 
 public:
 	ProductList getProduct(FILE *out_fp, string productName);
+	ProductList getAllProduct(FILE *out_fp);
 	ProductList showProductSoldOut(string sellerName);
 	void registerSellingProduct(string productName, string manufactureCompany, int productPrice, int productCount, string sellerName, int productIndex);
 };

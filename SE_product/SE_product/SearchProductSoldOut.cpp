@@ -4,8 +4,6 @@
 #include <iostream>
 using namespace std;
 
-
-
 void SearchProductSoldOutUI::showProductSoldOut(FILE* out_fp, ProductList productList) {
 	char sellerName[20];
 	char productName[20];
@@ -14,7 +12,7 @@ void SearchProductSoldOutUI::showProductSoldOut(FILE* out_fp, ProductList produc
 	strcpy(productName, productList.productName.c_str());
 	strcpy(manufactureCompany, productList.manufactureCompany.c_str());
 
-	fprintf(out_fp, "3.3. ÆÇ¸Å ¿Ï·á »óÇ° Á¶È¸ \n> %s %s %d %d %d \n\n", &productName, &manufactureCompany, productList.productPrice, productList.productCountSold, productList.averageBuySatisfaction);
+	fprintf(out_fp, "3.3. ï¿½Ç¸ï¿½ ï¿½Ï·ï¿½ ï¿½ï¿½Ç° ï¿½ï¿½È¸ \n> %s %s %d %d %d \n\n", &productName, &manufactureCompany, productList.productPrice, productList.productCountSold, productList.averageBuySatisfaction);
 }
 
 void SearchProductSoldOut::startInterface(FILE* in_fp, FILE* out_fp, Product* product) {
