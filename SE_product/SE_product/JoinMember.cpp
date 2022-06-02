@@ -24,7 +24,7 @@ tuple<string, string, string, string> JoinMemberUI::inputUserInformation(FILE* i
 
 void JoinMemberUI::showUserInformation(FILE* out_fp, string memberName, string memberIdNumber, string id, string password) {
 
-	cout << memberName << memberIdNumber << id << password << endl;
+	//cout << memberName << memberIdNumber << id << password << endl;
 
 	char c_memberName[20];
 	char c_memberIdNumber[20];

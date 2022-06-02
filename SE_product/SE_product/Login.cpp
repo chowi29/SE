@@ -20,7 +20,7 @@ tuple<string, string> LoginUI::inputMemberId(FILE* in_fp, FILE* out_fp) {
 
 void LoginUI::showMemberInformation(FILE* out_fp, string id, string password) {
 
-	cout << id << password << endl;
+	//cout << id << password << endl;
 
 
 	char c_id[20];

@@ -8,7 +8,7 @@ using namespace std;
 
 void LogoutUI::showMemberInformation(FILE* out_fp, string id) {
 
-	cout << id << endl;
+	//cout << id << endl;
 
 
 	char c_id[20];

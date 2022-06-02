@@ -11,7 +11,7 @@ ProductList* Product::getProduct(FILE *out_fp, string productName)
 			return &productList[i];
 		}
 	}
-	return &productList[10];
+	return &productList[1000];
 }
 
 int* Product::showProductSoldOut(string sellerName)

@@ -23,7 +23,7 @@ tuple<string, string, int, int> RegisterProductUI::inputProductSpec(FILE *in_fp,
 void RegisterProductUI::showProductSpec(FILE *out_fp, string productName, string manufactureCompany, int productPrice, int productCount)
 {
 
-	cout << productName << manufactureCompany << productPrice << productCount << endl;
+	//cout << productName << manufactureCompany << productPrice << productCount << endl;
 
 	char c_productName[20];
 	char c_manufactureCompany[20];
