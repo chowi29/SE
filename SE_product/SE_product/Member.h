@@ -7,11 +7,11 @@ using namespace std;
 class MemberList
 {
 public:
-	string memberName = "Jo";
-	string memberIdNumber = "123456";
-	string id = "Jo";
-	string password = "0000";
-	int memberIndex;
+	string memberName = "";
+	string memberIdNumber = "";
+	string id = "";
+	string password = "";
+	int memberIndex = 0;
 	bool check_longin = false;
 
 	void setMemberName(string memberName);

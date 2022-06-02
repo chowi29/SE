@@ -7,13 +7,13 @@ using namespace std;
 class ProductList
 {
 public:
-	string productName = "hat";
-	string manufactureCompany = "manu";
-	int productPrice = 2000;
-	int productCount = 10;
-	int productCountSold = 0;
-	int averageBuySatisfaction = 1;
-	string sellerName = "jaeheon";
+	string productName = "";
+	string manufactureCompany = "";
+	int productPrice = -1;
+	int productCount = -1;
+	int productCountSold = -1;
+	int averageBuySatisfaction = -1;
+	string sellerName = "";
 };
 
 class Product

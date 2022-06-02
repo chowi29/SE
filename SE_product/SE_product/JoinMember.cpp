@@ -35,7 +35,7 @@ void JoinMemberUI::showUserInformation(FILE* out_fp, string memberName, string m
 	strcpy(c_id, id.c_str());
 	strcpy(c_password, password.c_str());
 	//fprintf(out_fp, "%s", &sellerName);
-	fprintf(out_fp, "1.1. 회원 가입 \n>%s %s %s %s \n", &c_memberName, &c_memberIdNumber, &c_id, &c_password);
+	fprintf(out_fp, "1.1. 회원 가입 \n>%s %s %s %s \n\n", &c_memberName, &c_memberIdNumber, &c_id, &c_password);
 }
 
 void JoinMember::startInterface(FILE* in_fp, FILE* out_fp, Member* member, int memberIndex) {

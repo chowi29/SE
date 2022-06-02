@@ -66,8 +66,11 @@ void doTask(FILE* in_fp, FILE* out_fp) {
             case 1:
             {
                 //회원가입
+                cout << "회원가입 시도" << endl;
                 joinMember.startInterface(in_fp, out_fp, &member, memberIndex);
                 memberIndex++;
+                cout << "회원가입 성공" << endl;
+
                 break;
             }
             case 2: {
@@ -85,6 +88,7 @@ void doTask(FILE* in_fp, FILE* out_fp) {
             {
             case 1: {
                 //로그인
+                cout << "로그인 시도" << endl;
                 login.startInterface(in_fp, out_fp, &member);
                 break;
             }
@@ -156,7 +160,6 @@ void doTask(FILE* in_fp, FILE* out_fp) {
             }
         }
         }
-        return;
     }
 }
 

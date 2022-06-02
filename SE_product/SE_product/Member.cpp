@@ -59,6 +59,7 @@ string Member::deleteMember()
 			return result;
 		}
 	}
+	return "None";
 }
 
 void Member::login(string id)
@@ -82,6 +83,7 @@ string Member::logout()
 			return memberList[i].getId();
 		}
 	}
+	return memberList[99].getId();
 }
 
 string Member::findMember()
@@ -93,4 +95,6 @@ string Member::findMember()
 			return memberList[i].getId();
 		}
 	}
+	return memberList[99].getId();
+
 }

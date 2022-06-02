@@ -28,7 +28,7 @@ void LoginUI::showMemberInformation(FILE* out_fp, string id, string password) {
 	strcpy(c_id, id.c_str());
 	strcpy(c_password, password.c_str());
 	//fprintf(out_fp, "%s", &sellerName);
-	fprintf(out_fp, "2.1. 로그인 \n>%s %s \n", &c_id, &c_password);
+	fprintf(out_fp, "2.1. 로그인 \n>%s %s \n\n", &c_id, &c_password);
 }
 
 void Login::startInterface(FILE* in_fp, FILE* out_fp, Member* member) {

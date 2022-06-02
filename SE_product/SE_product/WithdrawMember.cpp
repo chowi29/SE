@@ -15,7 +15,7 @@ void WithdrawMemberUI::showUserInformation(FILE* out_fp, string id) {
 	strcpy(c_id, id.c_str());
 
 	//fprintf(out_fp, "%s", &sellerName);
-	fprintf(out_fp, "1.1. È¸¿ø Å»Åð \n>%s  \n", &c_id);
+	fprintf(out_fp, "1.1. È¸¿ø Å»Åð \n>%s  \n\n", &c_id);
 }
 
 void WithdrawMember::startInterface(FILE* out_fp, Member* member) {
