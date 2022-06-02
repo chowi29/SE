@@ -31,6 +31,6 @@ Logout::Logout() {
 
 }
 Logout::Logout(Member* member) {
-	this->member = *member;
+	this->member = member;
 }
 

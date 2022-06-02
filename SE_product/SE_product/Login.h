@@ -14,7 +14,7 @@ public:
 class Login
 {
 private:
-	Member member;
+	Member* member;
 	LoginUI loginUI;
 
 public:

@@ -7,7 +7,7 @@ class SearchProductUI
 {
 public:
 	string getProductName(FILE* in_fp, FILE* out_fp);
-	void showProduct(FILE* out_fp, ProductList productList);
+	void showProduct(FILE* out_fp, ProductList* productList);
 };
 
 class SearchProduct

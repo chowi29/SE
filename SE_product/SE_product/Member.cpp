@@ -68,8 +68,9 @@ void Member::login(string id)
 	{
 		if (memberList[i].id == id)
 		{
-			memberList->check_longin = true;
+			memberList[i].check_longin = true;
 		}
+
 	}
 }
 
@@ -79,7 +80,7 @@ string Member::logout()
 	{
 		if (memberList[i].check_longin == true)
 		{
-			memberList->check_longin = false;
+			memberList[i].check_longin = false;
 			return memberList[i].getId();
 		}
 	}

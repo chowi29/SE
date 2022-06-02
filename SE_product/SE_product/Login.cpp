@@ -48,5 +48,5 @@ Login::Login() {
 
 }
 Login::Login(Member* member) {
-	this->member = *member;
+	this->member = member;
 }

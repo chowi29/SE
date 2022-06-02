@@ -1,28 +1,34 @@
 #pragma once
 #include "Product.h"
 
-ProductList Product::getProduct(FILE *out_fp, string productName)
+ProductList* Product::getProduct(FILE *out_fp, string productName)
 {
 	for (int i = 0; i < 100; i++)
 	{
 		if (productList[i].productName == productName)
 		{
-			return productList[i];
+			searchIdx = i;
+			return &productList[i];
 		}
 	}
-	return productList[10];
+	return &productList[10];
 }
 
-ProductList Product::showProductSoldOut(string sellerName)
+int* Product::showProductSoldOut(string sellerName)
 {
+	static int arr[100];
+	for (int i = 0; i < 100; i++) {
+		arr[i] = 0;
+	}
 	for (int i = 0; i < 100; i++)
 	{
 		if (productList[i].sellerName == sellerName)
 		{
-			return productList[i];
+			arr[i] = 1;
 		}
 	}
-	return productList[10];
+
+	return arr;
 }
 
 void Product::registerSellingProduct(string productName, string manufactureCompany, int productPrice, int productCount, string sellerName, int productIndex)

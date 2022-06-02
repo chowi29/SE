@@ -11,6 +11,7 @@
 #include "Logout.h"
 #include "RegisterProduct.h"
 #include "SearchProductSoldOut.h"
+#include "BuyProduct.h"
 #pragma once
 // 상수 선언
 #define MAX_STRING 32
@@ -40,18 +41,18 @@ void doTask(FILE* in_fp, FILE* out_fp) {
     // 메뉴 파싱을 위한 level 구분을 위한 변수 
     int menu_level_1 = 0, menu_level_2 = 0;
     int is_program_exit = 0;
-    Product product;
-    int productIndex = 0;
-    SearchProduct searchProduct(&product);
-    SearchProductSoldOut searchProductSoldOut(&product);
-
+    Product product;    
     Member member;
     int memberIndex = 0;
+    int productIndex = 0;
+    SearchProduct searchProduct(&product);
+    SearchProductSoldOut searchProductSoldOut(&product, &member);
     JoinMember joinMember(&member);
     WithdrawMember withdrawMember(&member);
     Login login(&member);
     Logout logout(&member);
     RegisterProduct registerProduct(&member, &product);
+    BuyProduct buyProduct(&product);
 
     while (!is_program_exit) {
         // 입력파일에서 메뉴 숫자 2개를 읽기
@@ -66,10 +67,10 @@ void doTask(FILE* in_fp, FILE* out_fp) {
             case 1:
             {
                 //회원가입
-                cout << "회원가입 시도" << endl;
+                //cout << "회원가입 시도" << endl;
                 joinMember.startInterface(in_fp, out_fp, &member, memberIndex);
                 memberIndex++;
-                cout << "회원가입 성공" << endl;
+                //cout << "회원가입 성공" << endl;
 
                 break;
             }
@@ -88,7 +89,7 @@ void doTask(FILE* in_fp, FILE* out_fp) {
             {
             case 1: {
                 //로그인
-                cout << "로그인 시도" << endl;
+                //cout << "로그인 시도" << endl;
                 login.startInterface(in_fp, out_fp, &member);
                 break;
             }
@@ -128,6 +129,7 @@ void doTask(FILE* in_fp, FILE* out_fp) {
                 break;
             case 2:
                 //상품 구매
+                buyProduct.startInterface(in_fp, out_fp, &product);
             case 3:
                 //상품 구매 내역 조회
                 break;

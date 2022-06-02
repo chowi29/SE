@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BuyProduct.cpp" />
     <ClCompile Include="JoinMember.cpp" />
     <ClCompile Include="Login.cpp" />
     <ClCompile Include="Logout.cpp" />
@@ -151,6 +152,7 @@
     <ClCompile Include="WithdrawMember.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BuyProduct.h" />
     <ClInclude Include="JoinMember.h" />
     <ClInclude Include="Login.h" />
     <ClInclude Include="Logout.h" />

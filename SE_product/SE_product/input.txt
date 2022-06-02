@@ -1,8 +1,12 @@
 1 1 lee 123456 mbc pwd1
 2 1 mbc pwd1
 3 1 hat chulsoo 2000 1
-1 1 park 987654 obs pwd2
-2 1 obs pwd2
+3 1 asdf chulsoo 2000 0
+3 1 zxcv chulsoo 2000 0
+3 1 qwer chulsoo 2000 0
+4 1 hat
+3 3
+4 2
 4 1 hat
 3 3
 6 1

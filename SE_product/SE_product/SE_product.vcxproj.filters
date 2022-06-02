@@ -45,6 +45,9 @@
     <ClCompile Include="Member.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="BuyProduct.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Product.h">
@@ -72,6 +75,9 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="WithdrawMember.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="BuyProduct.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

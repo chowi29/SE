@@ -12,7 +12,7 @@ public:
 class Logout
 {
 private:
-	Member member;
+	Member* member;
 	LogoutUI logoutUI;
 
 public:
