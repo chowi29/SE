@@ -28,10 +28,10 @@ void LoginUI::showMemberInformation(FILE* out_fp, string id, string password) {
 	strcpy(c_id, id.c_str());
 	strcpy(c_password, password.c_str());
 	//fprintf(out_fp, "%s", &sellerName);
-	fprintf(out_fp, "2.1. 로그인\n> %s %s\n\n", &c_id, &c_password);
+	fprintf(out_fp, "2.1. 로그인 \n>%s %s \n", &c_id, &c_password);
 }
 
-void Login::startInterface(FILE* in_fp, FILE* out_fp) {
+void Login::startInterface(FILE* in_fp, FILE* out_fp, Member* member) {
 
 	string id;
 	string password;
@@ -40,8 +40,13 @@ void Login::startInterface(FILE* in_fp, FILE* out_fp) {
 	id = get<0>(memberInformation);
 	password = get<1>(memberInformation);
 
-	//ProductList productList = product->getProduct(out_fp, productName);
-	//로그인 했다는것을 어떻게 표현 해야하나..? 그냥 파일 입출력만 하면 될 것 같은데...? -> 아이디랑 패스워드 찾아서 true 리턴. 
+	member->login(id);
 	loginUI.showMemberInformation(out_fp, id, password);
 }
 
+Login::Login() {
+
+}
+Login::Login(Member* member) {
+	this->member = *member;
+}

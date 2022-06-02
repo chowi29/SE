@@ -20,6 +20,8 @@ private:
 	RegisterProductUI registerProductUI;
 
 public:
-	void startInterface(FILE* in_fp, FILE* out_fp);
+	RegisterProduct();
+	RegisterProduct(Member* member, Product* product);
+	void startInterface(FILE* in_fp, FILE* out_fp, Member* member, Product* product, int productIndex);
 };
 

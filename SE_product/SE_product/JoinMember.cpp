@@ -35,10 +35,10 @@ void JoinMemberUI::showUserInformation(FILE* out_fp, string memberName, string m
 	strcpy(c_id, id.c_str());
 	strcpy(c_password, password.c_str());
 	//fprintf(out_fp, "%s", &sellerName);
-	fprintf(out_fp, "1.1. 회원가입\n> %s %s %s %s \n\n", &c_memberName, &c_memberIdNumber, &c_id, &c_password);
+	fprintf(out_fp, "1.1. 회원 가입 \n>%s %s %s %s \n", &c_memberName, &c_memberIdNumber, &c_id, &c_password);
 }
 
-void JoinMember::startInterface(FILE* in_fp, FILE* out_fp, int index) {
+void JoinMember::startInterface(FILE* in_fp, FILE* out_fp, Member* member, int memberIndex) {
 
 
 	string memberName;
@@ -52,8 +52,14 @@ void JoinMember::startInterface(FILE* in_fp, FILE* out_fp, int index) {
 	id = get<2>(userInformation);
 	password = get<3>(userInformation);
 
-	//ProductList productList = product->getProduct(out_fp, productName);
-	member.addMember(memberName, memberIdNumber, id, password, index);
+	member->addMember(memberName, memberIdNumber, id, password, memberIndex);
 	joinMemberUI.showUserInformation(out_fp, memberName, memberIdNumber, id, password);
+}
+
+JoinMember::JoinMember() {
+
+}
+JoinMember::JoinMember(Member* member) {
+	this->member = *member;
 }
 

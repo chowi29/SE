@@ -16,5 +16,7 @@ private:
 	WithdrawMemberUI withdrawMemberUI;
 
 public:
-	void startInterface(FILE* out_fp);
+	WithdrawMember();
+	WithdrawMember(Member* member);
+	void startInterface(FILE* out_fp, Member* member);
 };

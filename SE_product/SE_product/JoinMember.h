@@ -18,6 +18,8 @@ private:
 	JoinMemberUI joinMemberUI;
 
 public:
-	void startInterface(FILE* in_fp, FILE* out_fp, int index);
+	JoinMember();
+	JoinMember(Member* member);
+	void startInterface(FILE* in_fp, FILE* out_fp, Member* member, int memberIndex);
 };
 

@@ -3,12 +3,14 @@
 //#include <stdio.h> 
 //#include <string.h>
 #include "SearchProduct.h"
-#include "SearchProductSoldOut.h"
+//#include "Product.h"
+//#include "Member.h"
 #include "JoinMember.h"
 #include "WithdrawMember.h"
 #include "Login.h"
 #include "Logout.h"
 #include "RegisterProduct.h"
+#include "SearchProductSoldOut.h"
 #pragma once
 // 상수 선언
 #define MAX_STRING 32
@@ -39,15 +41,17 @@ void doTask(FILE* in_fp, FILE* out_fp) {
     int menu_level_1 = 0, menu_level_2 = 0;
     int is_program_exit = 0;
     Product product;
+    int productIndex = 0;
     SearchProduct searchProduct(&product);
     SearchProductSoldOut searchProductSoldOut(&product);
-    JoinMember joinMember;
-    WithdrawMember withdrawMember;
-    Login login;
-    Logout logout;
-    RegisterProduct registerProduct;
 
+    Member member;
     int memberIndex = 0;
+    JoinMember joinMember(&member);
+    WithdrawMember withdrawMember(&member);
+    Login login(&member);
+    Logout logout(&member);
+    RegisterProduct registerProduct(&member, &product);
 
     while (!is_program_exit) {
         // 입력파일에서 메뉴 숫자 2개를 읽기
@@ -60,38 +64,47 @@ void doTask(FILE* in_fp, FILE* out_fp) {
             switch (menu_level_2)
             {
             case 1:
+            {
                 //회원가입
-                joinMember.startInterface(in_fp, out_fp, memberIndex);
+                joinMember.startInterface(in_fp, out_fp, &member, memberIndex);
                 memberIndex++;
                 break;
-            case 2:
+            }
+            case 2: {
                 //회원탈퇴
-                withdrawMember.startInterface(out_fp);
+                withdrawMember.startInterface(out_fp, &member);
+                memberIndex--;
                 break;
+            }
+
             }
             break;
         }
         case 2: {
             switch (menu_level_2)
             {
-            case 1:
+            case 1: {
                 //로그인
-                login.startInterface(in_fp, out_fp);
+                login.startInterface(in_fp, out_fp, &member);
                 break;
-            case 2:
+            }
+            case 2: {
                 //로그아웃
-                logout.startInterface(out_fp);
+                logout.startInterface(out_fp, &member);
                 break;
+            }
             }
             break;
         }
         case 3: {
             switch (menu_level_2)
             {
-            case 1:
+            case 1: {
                 //판매의류 등록
-                registerProduct.startInterface(in_fp, out_fp);
+                registerProduct.startInterface(in_fp, out_fp, &member, &product, productIndex);
+                productIndex++;
                 break;
+            }
             case 2:
                 //등록 상품 조회
                 break;
@@ -138,12 +151,12 @@ void doTask(FILE* in_fp, FILE* out_fp) {
                 is_program_exit = 1;
                 break;
             }
-            default: 
+            default:
                 break;
             }
         }
         }
-        //return;
+        return;
     }
 }
 

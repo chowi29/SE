@@ -15,16 +15,20 @@ void WithdrawMemberUI::showUserInformation(FILE* out_fp, string id) {
 	strcpy(c_id, id.c_str());
 
 	//fprintf(out_fp, "%s", &sellerName);
-	fprintf(out_fp, "1.2. 회원탈퇴\n> %s \n\n", &c_id);
+	fprintf(out_fp, "1.1. 회원 탈퇴 \n>%s  \n", &c_id);
 }
 
-void WithdrawMember::startInterface(FILE* out_fp) {
+void WithdrawMember::startInterface(FILE* out_fp, Member* member) {
 
 	string id;
 
-
-	//ProductList productList = product->getProduct(out_fp, productName);
-	member.deleteMember(id); //이 회원의 아이디를 받아서 리스트에서 아이디를 찾아서 삭제
+	id = member->deleteMember();
 	withdrawMemberUI.showUserInformation(out_fp, id);
 }
 
+WithdrawMember::WithdrawMember() {
+
+}
+WithdrawMember::WithdrawMember(Member* member) {
+	this->member = *member;
+}

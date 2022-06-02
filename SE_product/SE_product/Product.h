@@ -7,13 +7,13 @@ using namespace std;
 class ProductList
 {
 public:
-	string productName = "aszx";
-	string manufactureCompany = "gasxzcv";
-	int productPrice = 200;
-	int productCount = 14;
-	int productCountSold = 2;
-	int averageBuySatisfaction = 0;
-	string sellerName = "axcv";
+	string productName = "hat";
+	string manufactureCompany = "manu";
+	int productPrice = 2000;
+	int productCount = 10;
+	int productCountSold = 0;
+	int averageBuySatisfaction = 1;
+	string sellerName = "jaeheon";
 };
 
 class Product
@@ -23,5 +23,5 @@ private:
 public:
 	ProductList getProduct(FILE* out_fp, string productName);
 	ProductList showProductSoldOut(string sellerName);
+	ProductList registerSellingProduct(string productName, string manufactureCompany, int productPrice, int productCount, string sellerName, int productIndex);
 };
-

@@ -18,5 +18,7 @@ private:
 	LoginUI loginUI;
 
 public:
-	void startInterface(FILE* in_fp, FILE* out_fp);
+	Login();
+	Login(Member* member);
+	void startInterface(FILE* in_fp, FILE* out_fp, Member* member);
 };

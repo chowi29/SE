@@ -12,7 +12,7 @@ tuple<string, string, int, int> RegisterProductUI::inputProductSpec(FILE* in_fp,
 	char c_manufactureCompany[20];
 	int productPrice;
 	int productCount;
-	
+
 	fscanf(in_fp, "%s %s %d %d", &c_productName, &c_manufactureCompany, &productPrice, &productCount);
 	string productName(c_productName);
 	string manufactureCompany(c_manufactureCompany);
@@ -27,14 +27,14 @@ void RegisterProductUI::showProductSpec(FILE* out_fp, string productName, string
 
 	char c_productName[20];
 	char c_manufactureCompany[20];
-	
+
 	strcpy(c_productName, productName.c_str());
 	strcpy(c_manufactureCompany, manufactureCompany.c_str());
 	//fprintf(out_fp, "%s", &sellerName);
-	fprintf(out_fp, "3.1. 판매 의류 등록\n> %s %s %d %d\n\n", &c_productName, &c_manufactureCompany, &productPrice, &productCount);
+	fprintf(out_fp, "3.1. 판매의류 등록 \n>%s %s %d %d \n", &c_productName, &c_manufactureCompany, &productPrice, &productCount);
 }
 
-void RegisterProduct::startInterface(FILE* in_fp, FILE* out_fp) {
+void RegisterProduct::startInterface(FILE* in_fp, FILE* out_fp, Member* member, Product* product, int productIndex) {
 
 
 	string productName;
@@ -48,8 +48,22 @@ void RegisterProduct::startInterface(FILE* in_fp, FILE* out_fp) {
 	productPrice = get<2>(productSpec);
 	productCount = get<3>(productSpec);
 
-	//ProductList productList = product->getProduct(out_fp, productName);
+
 	//멤버와 프로덕트 관리.
+	//프로덕트에 추가 회원가입처럼 인덱스 만들어야 하나.
+	//회원에서 로그인된 아이디 받아서 seller name으로 넘겨 주면서 product->registerSellinProduct(프로덕트 정보, sellername, <index>)
+	//member->addSellingProduct(프로덕트)
+	string sellerName = member->findMember();
+	ProductList productList = product->registerSellingProduct(productName, manufactureCompany, productPrice, productCount, sellerName, productIndex);
+	member->addSellingProduct(productList);
 	registerProductUI.showProductSpec(out_fp, productName, manufactureCompany, productPrice, productCount);
+}
+
+RegisterProduct::RegisterProduct() {
+
+}
+RegisterProduct::RegisterProduct(Member* member, Product* product) {
+	this->member = *member;
+	this->product = *product;
 }
 

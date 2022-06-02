@@ -16,5 +16,7 @@ private:
 	LogoutUI logoutUI;
 
 public:
-	void startInterface(FILE* out_fp);
+	Logout();
+	Logout(Member* member);
+	void startInterface(FILE* out_fp, Member* member);
 };

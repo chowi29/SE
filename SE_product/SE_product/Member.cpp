@@ -27,17 +27,65 @@ string MemberList::getPassword() {
 	return this->password;
 }
 
-void Member::addMember(string memberName, string mebmerIdNumber, string id, string password, int index) {
-	memberList[index].setMemberName(memberName);
-	memberList[index].setMemberIdNumber(mebmerIdNumber);
-	memberList[index].setId(id);
-	memberList[index].setPassword(password);
+void MemberList::addSellingProduct(ProductList sellingProductList) {
+	this->sellingProductList[this->sellingProductIndex] = sellingProductList;
+	this->sellingProductIndex++;
 }
 
-void Member::deleteMember(string id) {
+void Member::addMember(string memberName, string memberIdNumber, string id, string password, int memberIndex) {
+	memberList[memberIndex].setMemberName(memberName);
+	memberList[memberIndex].setMemberIdNumber(memberIdNumber);
+	memberList[memberIndex].setId(id);
+	memberList[memberIndex].setPassword(password);
+	memberList[memberIndex].memberIndex = memberIndex;
+}
+
+string Member::deleteMember() {
+	for (int i = 0; i < 100; i++) {
+		if (memberList[i].check_longin == true) {
+			string result = memberList[i].getId();
+			memberList[i].check_longin = false;
+			for (int j = i; j < 99; j++) {
+				memberList[j].memberName = memberList[j + 1].memberName;
+				memberList[j].memberIdNumber = memberList[j + 1].memberIdNumber;
+				memberList[j].id = memberList[j + 1].id;
+				memberList[j].password = memberList[j + 1].password;
+				memberList[j].memberIndex--;
+			}
+			return result;
+		}
+	}
+}
+
+void Member::login(string id) {
 	for (int i = 0; i < 100; i++) {
 		if (memberList[i].id == id) {
-			//»èÁ¦.
+			memberList->check_longin = true;
+		}
+	}
+}
+
+string Member::logout() {
+	for (int i = 0; i < 100; i++) {
+		if (memberList[i].check_longin == true) {
+			memberList->check_longin = false;
+			return memberList[i].getId();
+		}
+	}
+}
+
+string Member::findMember() {
+	for (int i = 0; i < 100; i++) {
+		if (memberList[i].check_longin == true) {
+			return memberList[i].getId();
+		}
+	}
+}
+
+void Member::addSellingProduct(ProductList sellingProductList) {
+	for (int i = 0; i < 100; i++) {
+		if (memberList[i].check_longin == true) {
+			memberList[i].addSellingProduct(sellingProductList);
 		}
 	}
 }
