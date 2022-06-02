@@ -25,5 +25,6 @@ public:
 	int searchIdx;
 	ProductList* getProduct(FILE *out_fp, string productName);
 	int* showProductSoldOut(string sellerName);
+	int* showProductOnSale(string sellerName);
 	void registerSellingProduct(string productName, string manufactureCompany, int productPrice, int productCount, string sellerName, int productIndex);
 };

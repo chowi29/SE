@@ -12,21 +12,19 @@ void SearchProductSoldOutUI::showProductSoldOut(FILE* out_fp, ProductList* produ
 		if (arr[i] == 1) {
 			if (productList[i].productCount == 0)
 			{
-				char sellerName[20];
 				char productName[20];
 				char manufactureCompany[20];
-				strcpy(sellerName, productList[i].sellerName.c_str());
 				strcpy(productName, productList[i].productName.c_str());
 				strcpy(manufactureCompany, productList[i].manufactureCompany.c_str());
 				fprintf(out_fp, "> % s % s % d % d % d \n", &productName, &manufactureCompany, productList[i].productPrice, productList[i].productCountSold, productList[i].averageBuySatisfaction);
 			}
 		}
 	}
+	fprintf(out_fp, "\n");
 }
 
 void SearchProductSoldOut::startInterface(FILE* in_fp, FILE* out_fp, Product* product) {
 	string sellerName = member->findMember();
-	cout << "seller !!!!!! " << sellerName << endl;
 	int* arr;
 	arr = product->showProductSoldOut(sellerName);
 

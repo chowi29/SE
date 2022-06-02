@@ -30,7 +30,7 @@ void RegisterProductUI::showProductSpec(FILE *out_fp, string productName, string
 
 	strcpy(c_productName, productName.c_str());
 	strcpy(c_manufactureCompany, manufactureCompany.c_str());
-	// fprintf(out_fp, "%s", &sellerName);
+
 	fprintf(out_fp, "3.1. 판매 의류 등록 \n>%s %s %d %d \n\n", &c_productName, &c_manufactureCompany, productPrice, productCount);
 }
 
