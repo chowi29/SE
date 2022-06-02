@@ -1,0 +1,18 @@
+1.1. 회원가입
+> lee 123456 mbc pwd1 
+
+2.1. 로그인
+> mbc pwd1
+
+3.1. 판매 의류 등록
+> hat chulsoo 7240224 7240228
+
+1.1. 회원가입
+> park 987654 obs pwd2 
+
+2.1. 로그인
+> obs pwd2
+
+4.1. 상품 정보 검색 
+>axcv aszx gasxzcv 200 14 0 
+
