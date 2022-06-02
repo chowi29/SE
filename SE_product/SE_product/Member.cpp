@@ -1,38 +1,38 @@
 #pragma once
 #include "Member.h"
 
-
-
-void MemberList::setMemberName(string memberName) {
+void MemberList::setMemberName(string memberName)
+{
 	this->memberName = memberName;
 }
 
-void MemberList::setMemberIdNumber(string memberIdNumber) {
+void MemberList::setMemberIdNumber(string memberIdNumber)
+{
 	this->memberIdNumber = memberIdNumber;
 }
 
-void MemberList::setId(string id) {
+void MemberList::setId(string id)
+{
 	this->id = id;
 }
 
-void MemberList::setPassword(string password) {
+void MemberList::setPassword(string password)
+{
 	this->password = password;
 }
 
-string MemberList::getId() {
+string MemberList::getId()
+{
 	return this->id;
 }
 
-string MemberList::getPassword() {
+string MemberList::getPassword()
+{
 	return this->password;
 }
 
-void MemberList::addSellingProduct(ProductList sellingProductList) {
-	this->sellingProductList[this->sellingProductIndex] = sellingProductList;
-	this->sellingProductIndex++;
-}
-
-void Member::addMember(string memberName, string memberIdNumber, string id, string password, int memberIndex) {
+void Member::addMember(string memberName, string memberIdNumber, string id, string password, int memberIndex)
+{
 	memberList[memberIndex].setMemberName(memberName);
 	memberList[memberIndex].setMemberIdNumber(memberIdNumber);
 	memberList[memberIndex].setId(id);
@@ -40,12 +40,16 @@ void Member::addMember(string memberName, string memberIdNumber, string id, stri
 	memberList[memberIndex].memberIndex = memberIndex;
 }
 
-string Member::deleteMember() {
-	for (int i = 0; i < 100; i++) {
-		if (memberList[i].check_longin == true) {
+string Member::deleteMember()
+{
+	for (int i = 0; i < 100; i++)
+	{
+		if (memberList[i].check_longin == true)
+		{
 			string result = memberList[i].getId();
 			memberList[i].check_longin = false;
-			for (int j = i; j < 99; j++) {
+			for (int j = i; j < 99; j++)
+			{
 				memberList[j].memberName = memberList[j + 1].memberName;
 				memberList[j].memberIdNumber = memberList[j + 1].memberIdNumber;
 				memberList[j].id = memberList[j + 1].id;
@@ -57,35 +61,36 @@ string Member::deleteMember() {
 	}
 }
 
-void Member::login(string id) {
-	for (int i = 0; i < 100; i++) {
-		if (memberList[i].id == id) {
+void Member::login(string id)
+{
+	for (int i = 0; i < 100; i++)
+	{
+		if (memberList[i].id == id)
+		{
 			memberList->check_longin = true;
 		}
 	}
 }
 
-string Member::logout() {
-	for (int i = 0; i < 100; i++) {
-		if (memberList[i].check_longin == true) {
+string Member::logout()
+{
+	for (int i = 0; i < 100; i++)
+	{
+		if (memberList[i].check_longin == true)
+		{
 			memberList->check_longin = false;
 			return memberList[i].getId();
 		}
 	}
 }
 
-string Member::findMember() {
-	for (int i = 0; i < 100; i++) {
-		if (memberList[i].check_longin == true) {
+string Member::findMember()
+{
+	for (int i = 0; i < 100; i++)
+	{
+		if (memberList[i].check_longin == true)
+		{
 			return memberList[i].getId();
-		}
-	}
-}
-
-void Member::addSellingProduct(ProductList sellingProductList) {
-	for (int i = 0; i < 100; i++) {
-		if (memberList[i].check_longin == true) {
-			memberList[i].addSellingProduct(sellingProductList);
 		}
 	}
 }

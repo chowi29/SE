@@ -1,5 +1,5 @@
 #pragma once
-#include <stdio.h> 
+#include <stdio.h>
 #include <iostream>
 #include <string>
 using namespace std;
@@ -20,8 +20,9 @@ class Product
 {
 private:
 	ProductList productList[100];
+
 public:
-	ProductList getProduct(FILE* out_fp, string productName);
+	ProductList getProduct(FILE *out_fp, string productName);
 	ProductList showProductSoldOut(string sellerName);
-	ProductList registerSellingProduct(string productName, string manufactureCompany, int productPrice, int productCount, string sellerName, int productIndex);
+	void registerSellingProduct(string productName, string manufactureCompany, int productPrice, int productCount, string sellerName, int productIndex);
 };

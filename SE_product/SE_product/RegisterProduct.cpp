@@ -1,12 +1,12 @@
 #pragma once
 #include "RegisterProduct.h"
-#pragma warning(disable: 4996)
+#pragma warning(disable : 4996)
 #include <iostream>
 #include <tuple>
 using namespace std;
 
-
-tuple<string, string, int, int> RegisterProductUI::inputProductSpec(FILE* in_fp, FILE* out_fp) {
+tuple<string, string, int, int> RegisterProductUI::inputProductSpec(FILE *in_fp, FILE *out_fp)
+{
 
 	char c_productName[20];
 	char c_manufactureCompany[20];
@@ -20,8 +20,8 @@ tuple<string, string, int, int> RegisterProductUI::inputProductSpec(FILE* in_fp,
 	return tuple<string, string, int, int>(productName, manufactureCompany, productPrice, productCount);
 }
 
-
-void RegisterProductUI::showProductSpec(FILE* out_fp, string productName, string manufactureCompany, int productPrice, int productCount) {
+void RegisterProductUI::showProductSpec(FILE *out_fp, string productName, string manufactureCompany, int productPrice, int productCount)
+{
 
 	cout << productName << manufactureCompany << productPrice << productCount << endl;
 
@@ -30,40 +30,34 @@ void RegisterProductUI::showProductSpec(FILE* out_fp, string productName, string
 
 	strcpy(c_productName, productName.c_str());
 	strcpy(c_manufactureCompany, manufactureCompany.c_str());
-	//fprintf(out_fp, "%s", &sellerName);
-	fprintf(out_fp, "3.1. ÆÇ¸ÅÀÇ·ù µî·Ï \n>%s %s %d %d \n", &c_productName, &c_manufactureCompany, &productPrice, &productCount);
+	// fprintf(out_fp, "%s", &sellerName);
+	fprintf(out_fp, "3.1. ï¿½Ç¸ï¿½ï¿½Ç·ï¿½ ï¿½ï¿½ï¿½ \n>%s %s %d %d \n", &c_productName, &c_manufactureCompany, &productPrice, &productCount);
 }
 
-void RegisterProduct::startInterface(FILE* in_fp, FILE* out_fp, Member* member, Product* product, int productIndex) {
-
+void RegisterProduct::startInterface(FILE *in_fp, FILE *out_fp, Member *member, Product *product, int productIndex)
+{
 
 	string productName;
 	string manufactureCompany;
 	int productPrice;
 	int productCount;
 
-	tuple<string, string, int, int> productSpec = registerProductUI.inputProductSpec(in_fp, out_fp); //boundary class¿¡°Ô »óÇ°Á¤º¸ ÀÔ·Â¹ÞÀ¸¶ó°í ¿äÃ»
+	tuple<string, string, int, int> productSpec = registerProductUI.inputProductSpec(in_fp, out_fp); // boundary classï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·Â¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
 	productName = get<0>(productSpec);
 	manufactureCompany = get<1>(productSpec);
 	productPrice = get<2>(productSpec);
 	productCount = get<3>(productSpec);
 
-
-	//¸â¹ö¿Í ÇÁ·Î´öÆ® °ü¸®.
-	//ÇÁ·Î´öÆ®¿¡ Ãß°¡ È¸¿ø°¡ÀÔÃ³·³ ÀÎµ¦½º ¸¸µé¾î¾ß ÇÏ³ª.
-	//È¸¿ø¿¡¼­ ·Î±×ÀÎµÈ ¾ÆÀÌµð ¹Þ¾Æ¼­ seller nameÀ¸·Î ³Ñ°Ü ÁÖ¸é¼­ product->registerSellinProduct(ÇÁ·Î´öÆ® Á¤º¸, sellername, <index>)
-	//member->addSellingProduct(ÇÁ·Î´öÆ®)
 	string sellerName = member->findMember();
-	ProductList productList = product->registerSellingProduct(productName, manufactureCompany, productPrice, productCount, sellerName, productIndex);
-	member->addSellingProduct(productList);
+	product->registerSellingProduct(productName, manufactureCompany, productPrice, productCount, sellerName, productIndex);
 	registerProductUI.showProductSpec(out_fp, productName, manufactureCompany, productPrice, productCount);
 }
 
-RegisterProduct::RegisterProduct() {
-
+RegisterProduct::RegisterProduct()
+{
 }
-RegisterProduct::RegisterProduct(Member* member, Product* product) {
+RegisterProduct::RegisterProduct(Member *member, Product *product)
+{
 	this->member = *member;
 	this->product = *product;
 }
-
